@@ -1,0 +1,3 @@
+from .transformer_register import TransformerModelRegister
+from .transformer_encoder_register import TransformerEncoderRegister
+from .transformer_decoder_register import TransformerDecoderRegister
