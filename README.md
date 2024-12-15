@@ -114,11 +114,16 @@ bash train.sh {root_path}
 
 You can evaluate spBLEU, chrF++, and COMET scores by run
 ```bash
+# a tool to save cost in loading model when using the inference of fairseq.
 mv MITRE/scripts/multilingual_generate.py fairseq/fairseq_cli/multilingual_generate.py
+# libs for spbleu and chrf
 pip install sacrebleu
 pip install "sacrebleu[ja]"
 pip install "sacrebleu[ko]"
+# libs for comet
 pip install unbabel-comet
+# libs for making table
+pip install openpyxl
 
 bash evaluation.sh {root_path} {EXPERIMENT_NAME} {EXPERIMENT_ID} {PT_ID}
 ```
@@ -126,5 +131,12 @@ bash evaluation.sh {root_path} {EXPERIMENT_NAME} {EXPERIMENT_ID} {PT_ID}
 1. PT_ID can be a single pt name, "averaged" or "all".
 2. This script supports running with multiple gpus, please manually update params.
 
-### experiments on EC-40
+### Experiments on EC-40
 
+Scripts used in EC-40, which have a style similar to the MITRE's main scripts, are saved in MITRE/ec_40_scripts.
+
+When you want to reproduce the experiments on EC-40, please download the training data in the [repository of EC-40](https://github.com/Smu-Tan/ZS-NMT-Variations/tree/main).
+
+Do not forget to `mv {root_path}/MITRE/ec_40_scripts {root_path}/ec_40_scripts`.
+
+Additionally, when you want to measure off-target ratio, you have to run `pip install ftlangdetect` at first.
