@@ -4,7 +4,7 @@ Registering Source Tokens to Target Language Spaces in Multilingual Neural Machi
 
 This is the repository for reproducing the data mining and pre-training described in our paper.
 
-If consider using our pre-trained model only, please refer to the HuggingFace page (in implementing, coming soon). 
+If you consider using our pre-trained model only, please move to the HuggingFace page (we are implementing it, and it will coming soon). 
 
 ### BEGIN: Dirs tree
 
@@ -39,7 +39,7 @@ MITRE is a decoder-only model.
 
 In order to reuse the MNMT training tools of Fairseq, 
 we save the encoder-decoder architecture in training to reduce the cost of implementing data collection, batching, and loss computation.
-Specifically, we simply set the encoder layer to **0** to keep the feature of decoder-only.
+Specifically, we simply set the encoder layer to **0** to keep the decoder-only feature.
 
 ```markdown
 mitre
@@ -133,10 +133,10 @@ bash evaluation.sh {root_path} {EXPERIMENT_NAME} {EXPERIMENT_ID} {PT_ID}
 
 ### Experiments on EC-40
 
-Scripts used in EC-40, which have a style similar to the MITRE's main scripts, are saved in MITRE/ec_40_scripts.
+EC-40 scripts, which have a style similar to the main scripts, are saved in MITRE/ec_40_scripts.
 
-When you want to reproduce the experiments on EC-40, please download the training data in the [repository of EC-40](https://github.com/Smu-Tan/ZS-NMT-Variations/tree/main).
+When you want to reproduce the experiments on EC-40, please download the training data from [repository of EC-40](https://github.com/Smu-Tan/ZS-NMT-Variations/tree/main).
 
 Do not forget to `mv {root_path}/MITRE/ec_40_scripts {root_path}/ec_40_scripts`.
 
-Additionally, when you want to measure off-target ratio, you have to run `pip install ftlangdetect` at first.
+Additionally, when you want to measure the off-target ratio, you must first run `pip install ftlangdetect`.
