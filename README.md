@@ -16,12 +16,13 @@ root_path
 |   |   |--floresp-v2.0-rc.3
 |   |-- dicts
 |   |-- README.md
-# follows are created by build_data.sh
+# created by build_data.sh
 |   |-- mitre-bin
 |   |-- test-bin
 |   |-- results
 |   |-- tables
 |   |-- ...
+# end
 |-- fairseq
 |   |-- models
 |   |   |--mitre
