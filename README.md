@@ -1,10 +1,10 @@
 # MITRE
 
-Registering Source Token into the Target Language Spaces in Multilingual Neural Machine Translation
+Registering Source Tokens to Target Language Spaces in Multilingual Neural Machine Translation
 
 This is the repository for reproducing the data mining and pre-training described in our paper.
 
-If consider use our pre-trained model only, please refer to the HuggingFace page (in implementing, coming soon). 
+If consider using our pre-trained model only, please refer to the HuggingFace page (in implementing, coming soon). 
 
 ### BEGIN: Dirs tree
 
@@ -38,8 +38,8 @@ root_path
 MITRE is a decoder-only model.
 
 In order to reuse the MNMT training tools of Fairseq, 
-we save the encoder-decoder architecture in training to reduce the cost in implementing data collection, batching and loss computation.
-Specifically, we simply set encoder layer to **0** to keep the feature in decoder-only.
+we save the encoder-decoder architecture in training to reduce the cost of implementing data collection, batching, and loss computation.
+Specifically, we simply set the encoder layer to **0** to keep the feature of decoder-only.
 
 ```markdown
 mitre
@@ -55,7 +55,7 @@ mitre
 |-- __init__.py
 ```
 
-### Envirnment Init
+### Environment Init
 
 ```bash
 conda create -n mitre python=3.10
@@ -106,13 +106,13 @@ If you want to reproduce the pre-training of MITRE, please run
 bash train.sh {root_path}
 ```
 **Note**:  
-1. You have to mannually update and confirm params in L3~14, which are used to distributed training.  
+1. You have to manually update and confirm params in L3~14, which are used to distributed training.  
 2. The type of 400M model is transformer_register_big; the type of 900M model is transformer_register_massive
 
 
 ### Evaluation
 
-You can evluate spBLEU, chrF++, and COMET scores by run
+You can evaluate spBLEU, chrF++, and COMET scores by run
 ```bash
 mv MITRE/scripts/multilingual_generate.py fairseq/fairseq_cli/multilingual_generate.py
 pip install sacrebleu
@@ -123,6 +123,8 @@ pip install unbabel-comet
 bash evaluation.sh {root_path} {EXPERIMENT_NAME} {EXPERIMENT_ID} {PT_ID}
 ```
 **Note**:  
-1. PT_ID can be a single pt name, "averaged" and "all".
-2. This script supports running with multiple gpu, please manually update params.
+1. PT_ID can be a single pt name, "averaged" or "all".
+2. This script supports running with multiple gpus, please manually update params.
+
+### experiments on EC-40
 
