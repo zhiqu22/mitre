@@ -138,6 +138,6 @@ EC-40 scripts, which have a style similar to the main scripts, are saved in MITR
 
 When you want to reproduce the experiments on EC-40, please download the training data from [repository of EC-40](https://github.com/Smu-Tan/ZS-NMT-Variations/tree/main).
 
-Do not forget to `mv {root_path}/MITRE/ec_40_scripts {root_path}/ec_40_scripts`.
+Do not forget to `mv {root_path}/MITRE/ec_40_scripts {root_path}/ec_40_scripts` and `cp {root_path}/MITRE/dicts/flores200_sacrebleu_tokenizer_spm.model {root_path}/ec_40_scripts/dicts/`.
 
 Additionally, when you want to measure the off-target ratio, you must first run `pip install ftlangdetect`.
