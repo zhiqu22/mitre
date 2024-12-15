@@ -2,14 +2,14 @@
 
 Registering Source Token into the Target Language Spaces in Multilingual Neural Machine Translation
 
-This is the repository for reproducing the training described in our paper.
+This is the repository for reproducing the data mining and pre-training described in our paper.
 
-If consider use only, please refer to the HuggingFace page (implementing). 
+If consider use our pre-trained model only, please refer to the HuggingFace page (in implementing, coming soon). 
 
 ### BEGIN: Dirs tree
 
 ```markdown
-parent_dir
+root_path
 |-- MITRE
 |   |-- scripts
 |   |-- raw_data
@@ -31,18 +31,29 @@ parent_dir
 **Note**:  
 1. Please manually download [Flores+](https://github.com/openlanguagedata/flores/tags/v2.0-rc.3). 
 2. Extract the subfiles of Flores+, and place them in `raw_data/floresp-v2.0-rc.3`.
-2. Please manually download `mosesdecoder`.
+3. Please manually download `mosesdecoder`.
 
-### BEGIN: Codes Introduction 
+### BEGIN: Codes Introduction
+
+MITRE is a decoder-only model.
+
+In order to reuse the MNMT training tools of Fairseq, 
+we save the encoder-decoder architecture in training to reduce the cost in implementing data collection, batching and loss computation.
+Specifically, we simply set encoder layer to **0** to keep the feature in decoder-only.
+
 ```markdown
 mitre
 |-- models
 |   |-- __init__.py
-|   |-- scripts
-|   |-- raw_data
+|   |-- transformer_encoder_register.py
+|   |-- transformer_decoder_register.py
+|   |-- transformer_register.py
 |-- modules
-|   |-- dicts
+|   |-- __init__.py
+|   |-- mutihead_attention_register.py
+|   |-- transformer_layer_register.py
 |-- __init__.py
+```
 
 ### Envirnment Init
 
@@ -57,12 +68,12 @@ git clone https://github.com/pytorch/fairseq
 cd fairseq
 pip install --editable ./
 
-# if there raise any error about cython in installing fairseq, 
+# if there raise any error about cython or spicy in installing fairseq, 
 # please consider mannully edit pyproject.toml like this:
 # vi pyproject.toml
 #requires = [...
 #  "cython", --> "cython<3.0.0"
-#  "numpy>=1.21.3", --> "numpy==1.22.4" # the minimum requirement for spicy, higher version will raise error
+#  "numpy>=1.21.3", --> "numpy==1.22.4"
 #  "torch>=1.10", --> "torch>=2.0.1"
 #]
 
@@ -85,6 +96,33 @@ mv mitre fairseq/models/mitre
 #    if you want to speed up this process, you can set denominator to n
 #    to divide the language pairs into n parts, then mannully set nominator to m,
 #    which means to process the m-th part pairs.
-bash build_data.sh {parent_path}
+bash build_data.sh {root_path}
 ```
+
+### Train
+
+If you want to reproduce the pre-training of MITRE, please run
+```bash
+bash train.sh {root_path}
+```
+**Note**:  
+1. You have to mannually update and confirm params in L3~14, which are used to distributed training.  
+2. The type of 400M model is transformer_register_big; the type of 900M model is transformer_register_massive
+
+
+### Evaluation
+
+You can evluate spBLEU, chrF++, and COMET scores by run
+```bash
+mv MITRE/scripts/multilingual_generate.py fairseq/fairseq_cli/multilingual_generate.py
+pip install sacrebleu
+pip install "sacrebleu[ja]"
+pip install "sacrebleu[ko]"
+pip install unbabel-comet
+
+bash evaluation.sh {root_path} {EXPERIMENT_NAME} {EXPERIMENT_ID} {PT_ID}
+```
+**Note**:  
+1. PT_ID can be a single pt name, "averaged" and "all".
+2. This script supports running with multiple gpu, please manually update params.
 
