@@ -4,7 +4,7 @@ Registering Source Tokens to Target Language Spaces in Multilingual Neural Machi
 
 ## Introduction
 MITRE (Multilingual Translation with Registers) is a multilingual, decoder-only model designed for many-to-many translation tasks.  
-The technology, i.e., registering, is introduced in our [paper](url_placeholder).  
+The technology, i.e., registering, is introduced in our [paper](https://arxiv.org/abs/2501.02979).  
 
 This is the repository for reproducing the data mining and pre-training described in our paper.
 
@@ -24,5 +24,13 @@ Asian*: Chinese (zh), Japanese (ja), Korean (ko), Vietnamese (vi)
 
 ## BibTeX entry and citation info
 ```
-place holder
+@misc{qu2025registeringsourcetokenstarget,
+      title={Registering Source Tokens to Target Language Spaces in Multilingual Neural Machine Translation}, 
+      author={Zhi Qu and Yiran Wang and Jiannan Mao and Chenchen Ding and Hideki Tanaka and Masao Utiyama and Taro Watanabe},
+      year={2025},
+      eprint={2501.02979},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2501.02979}, 
+}
 ```
