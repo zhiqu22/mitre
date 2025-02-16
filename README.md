@@ -2,32 +2,40 @@
 
 Registering Source Tokens to Target Language Spaces in Multilingual Neural Machine Translation
 
-This is the repository for reproducing the data mining and pre-training described in our paper.
+## Introduction
+MITRE (Multilingual Translation with Registers) is a multilingual, decoder-only model designed for many-to-many translation tasks.  
+The technology, i.e., registering, is introduced in our [paper](https://arxiv.org/abs/2501.02979).  
 
-If you consider using our pre-trained model only, please move to the HuggingFace page (we are implementing it, and it will coming soon). 
+This is the repository for reproducing the data mining and pre-training described in our paper. (Checkpoints of our models would be uploaded later)
 
-### BEGIN: Dirs tree
+If you consider using our pre-trained model only, please move to our HuggingFace pages, [MITRE_466M](https://huggingface.co/naist-nlp/mitre_466m) and [MITRE_913M](https://huggingface.co/naist-nlp/mitre_913m), where we have already released another version of our codes and pre-trained models with the exactly same performance.
 
-```markdown
+## Languages covered
+Germanic: English (en), German (de), Dutch; Flemish (nl), Swedish (sv), Danish (da), Afrikaans (af)  
+Romance: French (fr), Spanish (es), Italian (it), Portuguese (pt), Romanian; Moldavian; Moldovan (ro)  
+Slavic: Russian (ru), Czech (cs), Polish (pl), Bulgarian (bg), Ukrainian (uk)  
+Malayo-Polynesian: Indonesian (id), Malay (ms), Javanese (jv), Tagalog;Filipino (tl)  
+Asian*: Chinese (zh), Japanese (ja), Korean (ko), Vietnamese (vi)  
+
+**Acknowledgement**:  
+Partial works are done during Zhi Qu's internship at [ASTREC](https://astrec.nict.go.jp/) of NICT, Japan.
+
+### Directory Structure
+
+```plaintext
 root_path
-|-- MITRE
-|   |-- scripts
-|   |-- raw_data
-|   |   |--floresp-v2.0-rc.3
-|   |-- dicts
-|   |-- README.md
-# created by build_data.sh
-|   |-- mitre-bin
-|   |-- test-bin
-|   |-- results
-|   |-- tables
-|   |-- ...
-# end
-|-- fairseq
-|   |-- models
-|   |   |--mitre
-|-- mosesdecoder
-```
+|-- MITRE/
+|   |-- scripts/
+|   |-- raw_data/        # Data for training
+|   |-- dicts/           # Dictionaries for language pairs
+|   |-- mitre-bin/       # Binarized data
+|   |-- test-bin/        # Test data
+|   |-- results/         # Training results
+|   |-- tables/          # Evaluation tables
+|-- fairseq/             # Fairseq code
+|   |-- models/
+|   |   |-- mitre/
+|-- mosesdecoder/        # Moses decoder for preprocessing
 
 **Note**:  
 1. Please manually download [Flores+](https://github.com/openlanguagedata/flores/tags/v2.0-rc.3). 
@@ -42,19 +50,17 @@ In order to reuse the MNMT training tools of Fairseq,
 we save the encoder-decoder architecture in training to reduce the cost of implementing data collection, batching, and loss computation.
 Specifically, we simply set the encoder layer to **0** to keep the decoder-only feature.
 
-```markdown
-mitre
-|-- models
+```plaintext
+mitre/
+|-- models/
 |   |-- __init__.py
 |   |-- transformer_encoder_register.py
 |   |-- transformer_decoder_register.py
 |   |-- transformer_register.py
-|-- modules
+|-- modules/
 |   |-- __init__.py
 |   |-- mutihead_attention_register.py
 |   |-- transformer_layer_register.py
-|-- __init__.py
-```
 
 ### Environment Init
 
@@ -141,3 +147,18 @@ When you want to reproduce the experiments on EC-40, please download the trainin
 Do not forget to `mv {root_path}/MITRE/ec_40_scripts {root_path}/ec_40_scripts` and `cp {root_path}/MITRE/dicts/flores200_sacrebleu_tokenizer_spm.model {root_path}/ec_40_scripts/dicts/`.
 
 Additionally, when you want to measure the off-target ratio, you must first run `pip install ftlangdetect`.
+
+
+## BibTeX entry and citation info
+If you use MITRE in your research, please cite our paper:
+```
+@misc{qu2025registeringsourcetokenstarget,
+      title={Registering Source Tokens to Target Language Spaces in Multilingual Neural Machine Translation}, 
+      author={Zhi Qu and Yiran Wang and Jiannan Mao and Chenchen Ding and Hideki Tanaka and Masao Utiyama and Taro Watanabe},
+      year={2025},
+      eprint={2501.02979},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2501.02979}, 
+}
+```
