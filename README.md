@@ -26,6 +26,7 @@ root_path
 |   |-- models/
 |   |   |-- mitre/
 |-- mosesdecoder/        # Moses decoder for preprocessing
+```
 
 **Note**:  
 1. Please manually download [Flores+](https://github.com/openlanguagedata/flores/tags/v2.0-rc.3). 
@@ -51,6 +52,7 @@ mitre/
 |   |-- __init__.py
 |   |-- mutihead_attention_register.py
 |   |-- transformer_layer_register.py
+```
 
 ### Environment Init
 
