@@ -10,17 +10,7 @@ This is the repository for reproducing the data mining and pre-training describe
 
 If you consider using our pre-trained model only, please move to our HuggingFace pages, [MITRE_466M](https://huggingface.co/naist-nlp/mitre_466m) and [MITRE_913M](https://huggingface.co/naist-nlp/mitre_913m), where we have already released another version of our codes and pre-trained models with the exactly same performance.
 
-## Languages covered
-Germanic: English (en), German (de), Dutch; Flemish (nl), Swedish (sv), Danish (da), Afrikaans (af)  
-Romance: French (fr), Spanish (es), Italian (it), Portuguese (pt), Romanian; Moldavian; Moldovan (ro)  
-Slavic: Russian (ru), Czech (cs), Polish (pl), Bulgarian (bg), Ukrainian (uk)  
-Malayo-Polynesian: Indonesian (id), Malay (ms), Javanese (jv), Tagalog;Filipino (tl)  
-Asian*: Chinese (zh), Japanese (ja), Korean (ko), Vietnamese (vi)  
-
-**Acknowledgement**:  
-Partial works are done during Zhi Qu's internship at [ASTREC](https://astrec.nict.go.jp/) of NICT, Japan.
-
-### Directory Structure
+## Directory Structure
 
 ```plaintext
 root_path
@@ -106,7 +96,7 @@ mv mitre fairseq/models/mitre
 bash build_data.sh {root_path}
 ```
 
-### Train
+## Train
 
 If you want to reproduce the pre-training of MITRE, please run
 ```bash
@@ -117,7 +107,7 @@ bash train.sh {root_path}
 2. The type of 400M model is transformer_register_big; the type of 900M model is transformer_register_massive
 
 
-### Evaluation
+## Evaluation
 
 You can evaluate spBLEU, chrF++, and COMET scores by run
 ```bash
@@ -138,7 +128,7 @@ bash evaluation.sh {root_path} {EXPERIMENT_NAME} {EXPERIMENT_ID} {PT_ID}
 1. PT_ID can be a single pt name, "averaged" or "all".
 2. This script supports running with multiple gpus, please manually update params.
 
-### Experiments on EC-40
+## Experiments on EC-40
 
 EC-40 scripts, which have a style similar to the main scripts, are saved in MITRE/ec_40_scripts.
 
@@ -148,6 +138,16 @@ Do not forget to `mv {root_path}/MITRE/ec_40_scripts {root_path}/ec_40_scripts` 
 
 Additionally, when you want to measure the off-target ratio, you must first run `pip install ftlangdetect`.
 
+## Languages covered
+Germanic: English (en), German (de), Dutch; Flemish (nl), Swedish (sv), Danish (da), Afrikaans (af)  
+Romance: French (fr), Spanish (es), Italian (it), Portuguese (pt), Romanian; Moldavian; Moldovan (ro)  
+Slavic: Russian (ru), Czech (cs), Polish (pl), Bulgarian (bg), Ukrainian (uk)  
+Malayo-Polynesian: Indonesian (id), Malay (ms), Javanese (jv), Tagalog;Filipino (tl)  
+Asian*: Chinese (zh), Japanese (ja), Korean (ko), Vietnamese (vi)  
+
+
+## Acknowledgement  
+Partial works are done during Zhi Qu's internship at [ASTREC](https://astrec.nict.go.jp/) of NICT, Japan.
 
 ## BibTeX entry and citation info
 If you use MITRE in your research, please cite our paper:
