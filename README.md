@@ -17,7 +17,6 @@ Slavic: Russian (ru), Czech (cs), Polish (pl), Bulgarian (bg), Ukrainian (uk)
 Malayo-Polynesian: Indonesian (id), Malay (ms), Javanese (jv), Tagalog;Filipino (tl)  
 Asian*: Chinese (zh), Japanese (ja), Korean (ko), Vietnamese (vi)  
 
-<<<<<<< HEAD
 **Acknowledgement**:  
 Partial works are done during Zhi Qu's internship at [ASTREC](https://astrec.nict.go.jp/) of NICT, Japan.
 
@@ -152,9 +151,6 @@ Additionally, when you want to measure the off-target ratio, you must first run 
 
 ## BibTeX entry and citation info
 If you use MITRE in your research, please cite our paper:
-=======
-## BibTeX entry and citation info
->>>>>>> 9fb897a8a719c5ddf842cbd01483239169839cb6
 ```
 @misc{qu2025registeringsourcetokenstarget,
       title={Registering Source Tokens to Target Language Spaces in Multilingual Neural Machine Translation}, 
