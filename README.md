@@ -1,14 +1,29 @@
-# MITRE
-
-Registering Source Tokens to Target Language Spaces in Multilingual Neural Machine Translation
+<div align="center">
+  
+  <h1>
+    Registering Source Tokens to Target Language Spaces<br>
+    in Multilingual Neural Machine Translation
+  </h1>
+</div>
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-FAD689.svg" /></a>
+  <a href="https://zhiqu22.github.io/"><img src="https://img.shields.io/badge/Homepage-Qu-silver"></a>
+  <a href="https://arxiv.org/abs/2501.02979"><img src="https://img.shields.io/badge/Paper-blue" /></a>
+  <a href="https://huggingface.co/naist-nlp/mitre_466m"><img src="https://img.shields.io/badge/Hugging%20Face-yellow"/></a>
+  <br>
+  <img src="https://img.shields.io/badge/ACL_2025-red"/>
+  <img src="https://img.shields.io/badge/Oral-orange"/>
+</p>
 
 ## Introduction
 MITRE (Multilingual Translation with Registers) is a multilingual, decoder-only model designed for many-to-many translation tasks.  
 The technology, i.e., registering, is introduced in our [paper](https://arxiv.org/abs/2501.02979).  
+Our paper has been accepted by ACL 2025 and selected as an oral presentation!  
 
-This is the repository for reproducing the data mining and pre-training described in our paper. (Checkpoints of our models would be uploaded later)
+This is the repository for reproducing the data mining and pre-training described in our paper.  
+(Checkpoints of our models will be uploaded later)
 
-If you consider using our pre-trained model only, please move to our HuggingFace pages, [MITRE_466M](https://huggingface.co/naist-nlp/mitre_466m) and [MITRE_913M](https://huggingface.co/naist-nlp/mitre_913m), where we have already released another version of our codes and pre-trained models with the exactly same performance.
+If you consider using our pre-trained model only, please move to our HuggingFace pages, [MITRE_466M](https://huggingface.co/naist-nlp/mitre_466m) and [MITRE_913M](https://huggingface.co/naist-nlp/mitre_913m), where we have already released another version of our codes and pre-trained models with the same performance.
 
 ## Directory Structure
 
