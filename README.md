@@ -10,15 +10,12 @@
   <a href="https://zhiqu22.github.io/"><img src="https://img.shields.io/badge/Homepage-Qu-silver"></a>
   <a href="https://arxiv.org/abs/2501.02979"><img src="https://img.shields.io/badge/Paper-blue" /></a>
   <a href="https://huggingface.co/naist-nlp/mitre_466m"><img src="https://img.shields.io/badge/Hugging%20Face-yellow"/></a>
-  <br>
-  <img src="https://img.shields.io/badge/ACL_2025-red"/>
-  <img src="https://img.shields.io/badge/Oral-orange"/>
 </p>
 
 ## Introduction
 MITRE (Multilingual Translation with Registers) is a multilingual, decoder-only model designed for many-to-many translation tasks.  
 The technology, i.e., registering, is introduced in our [paper](https://arxiv.org/abs/2501.02979).  
-Our paper has been accepted by ACL 2025 and selected as an oral presentation!  
+Our paper has been accepted by **ACL 2025** and selected as an **oral presentation**!  
 
 This is the repository for reproducing the data mining and pre-training described in our paper.  
 (Checkpoints of our models will be uploaded later)
